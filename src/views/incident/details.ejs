@@ -1,0 +1,41 @@
+
+<h2><%= t(name) %> details:</h2>
+<table>
+    <tr>
+        <td><%- t('Delito') %></td>
+        <td><%- t('Incidentes') %></td>
+        <td><%- t('Victimas Masc') %></td>
+        <td><%- t('Victimas Fem') %></td>
+        <td><%- t('Victimas S/D') %></td>
+    </tr>
+    <% entries.forEach(function (entry) { %>
+    <tr>
+        <td colspan="5">
+            <strong><%- t(entry.crime_category_name) %></strong>
+        </td>
+    </tr>
+    <% entry.incidents.forEach(function (incident) { %>
+    <tr>
+        <td>
+            <%- t(incident.crime_name) %>
+        </td>
+        <td>
+            <%- incident.incidents %>
+        </td>
+        <% if (incident.male_victims == 0 && incident.female_victims == 0 && incident.unspecified_genre_victims == 0) { %>
+            <td colspan="3"><%- t('sin especificar') %></td>
+        <% } else { %>
+        <td>
+            <%- incident.male_victims %>
+        </td>
+        <td>
+            <%- incident.female_victims %>
+        </td>
+        <td>
+            <%- incident.unspecified_genre_victims %>
+        </td>
+        <% } %>
+    </tr>
+    <% }) %>
+    <% }) %>
+</table>

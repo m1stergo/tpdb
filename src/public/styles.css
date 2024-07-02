@@ -1,0 +1,213 @@
+html,body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+* {
+    box-sizing: border-box; 
+}
+
+
+table {
+    border-collapse: collapse;
+}
+table tr:nth-child(2n) {
+    background-color: #eeeeee;
+}
+
+table tr.active {
+    border: 5px solid black;
+}
+
+table td {
+    padding: 8px;
+
+}
+
+section {
+    padding: 32px 16px;
+}
+
+[data-tooltip] {
+    cursor: context-menu;
+    position: relative;
+}
+[data-tooltip-content] {
+    content: attr(data-tooltip);
+    position: absolute;
+    opacity: 0;
+    bottom:50%;
+    left:50%;
+    transform: translateX(-50%);
+    transition: 256ms all ease;
+    padding: 10px 20px;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0px 6px 21px rgb(0 0 0 / 10%);
+    width: 180px;
+    pointer-events: none;
+}
+
+[data-tooltip]:hover [data-tooltip-content] {
+    opacity: 1;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    bottom: 100%;
+}
+[data-tooltip]:first-of-type:hover [data-tooltip-content] {
+    left: 0;
+    right: auto;
+    transform: translateX(0);
+}
+[data-tooltip]:last-of-type:hover [data-tooltip-content] {
+    right: auto;
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+.relative {
+    position: relative;
+    z-index: 1;
+}
+.text-left {
+    text-align: left;
+}
+
+.rank {
+    position: relative;
+}
+.rank::before {
+    content: "";
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.rank-1:before {
+    background-color: rgba(255,0,0,.8)!important;
+}
+.rank-2:before {
+    background-color: rgba(255,0,0,.6)!important;
+}
+.rank-3:before {
+    background-color: rgba(255,0,0,.4)!important;
+}
+.rank-4:before {
+    background-color: rgba(255, 115, 0, 0.7)!important;
+}
+.rank-5:before {
+    background-color: rgba(255, 115, 0, 0.5)!important;
+}
+.rank-6:before {
+    background-color: rgba(255, 115, 0, 0.4)!important;
+}
+.rank-7:before {
+    background-color: rgba(255, 217, 0, 0.7)!important;
+}
+.rank-8:before {
+    background-color: rgba(255, 217, 0, 0.5)!important;
+}
+.rank-9:before {
+    background-color: rgba(255, 217, 0, 0.4)!important;
+}
+.rank-10:before {
+    background-color: rgba(174, 255, 0, 0.6)!important;
+}
+.rank-11:before {
+    background-color: rgba(174, 255, 0, 0.4)!important;
+}
+.rank-12:before {
+    background-color: rgba(174, 255, 0, 0.2)!important;
+}
+.rank-13:before {
+    background-color: rgba(205, 250, 166, 0.3)!important;
+}
+.rank-14:before {
+    background-color: rgba(205, 250, 166, 0.2)!important;
+}
+.rank-15:before {
+    background-color: rgba(205, 250, 166, 0.1)!important;
+}
+.rank-16:before {
+    background-color: white!important;
+}
+
+.flex {
+    display: flex;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+}
+.card {
+    overflow: hidden;
+    text-align: center;;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    gap: 8px;
+    min-width: 100px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.card-title {
+    font-size: 21px;
+}
+.card-number {
+    font-size: 26px;
+}
+
+
+.drawer {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 50%;
+    padding: 32px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+.drawer-title {
+    font-size: 24px;
+}
+
+.drawer-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    font-size: 40px;
+    text-decoration: none;
+    color: #000;
+}
+.drawer-close:hover {
+    color: #a52d2d;
+}
+
+.details-visible {
+    padding-right: 50%;
+}
+
+.details-visible .drawer {
+    left: 50%;
+    width: 50%;
+}
+
+#content {
+    height: 100vh;
+    overflow-y: auto;
+}
+#content .container {
+    max-width: 900px;
+    margin: 0 auto;
+}

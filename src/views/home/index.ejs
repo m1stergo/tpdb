@@ -1,0 +1,63 @@
+<div class="container">
+    <section>
+        <h2><%- t('Incidentes por departamento') %></h2>
+        <p><%- departments.first.name %> <%- t('es el mes con mas incidentes') %>: <%- departments.first.incidents %></p>
+        <p><%- departments.last.name %> <%- t('es el mes con menos incidentes') %>: <%- departments.last.incidents %></p>
+        <br/>
+        <div class="cards">
+            <% departments.entries.forEach(function (department) { %>
+            <div class="card rank rank-<%- department.ranking %>">
+                <div class="card-title">
+                    <%- department.name %>
+                </div>
+                <div class="card-number">
+                    <%- department.incidents %>
+                </div>
+                <a href="#incidents/by-department/<%- department.id %>" class="card-link" data-details="incidents/by-department/<%- department.id %>">view more</a>
+            </div>
+            <%})%>
+        </div>
+    </section>
+
+    <section>
+        <h2><%- t('Incidentes por mes') %></h2>
+        <p><%- t(months.first.name) %> <%- t('es el mes con mas incidentes') %>: <%- months.first.incidents %></p>
+        <p><%- t(months.last.name) %> <%- t('es el mes con menos incidentes') %>: <%- months.last.incidents %></p>
+        <br/>
+        <div class="cards">
+            <% months.entries.forEach(function (month) { %>
+            <div class="card rank rank-<%- month.ranking %>">
+                <div class="card-title">
+                    <%- t(month.name) %>
+                </div>
+                <div class="card-number">
+                    <%- month.incidents %>
+                </div>
+                <a href="#incidents/by-month/<%- month.id %>" class="card-link" data-details="incidents/by-month/<%- month.id %>">view more</a>
+            </div>
+            <%})%>
+        </div>
+    </section>
+
+    <section>
+        <h2><%- t('Incidentes por tipo de delito') %></h2>
+        <p><%- t(categories.first.name) %> <%- t('es el delito con mas incidentes') %>: <%- categories.first.incidents %></p>
+        <p><%- t(categories.last.name) %> <%- t('es el delito con menos incidentes') %>: <%- categories.last.incidents %></p>
+        <br/>
+        <div class="cards">
+            <% categories.entries.forEach(function (category) { %>
+            <div class="card rank rank-<%- category.ranking %>">
+                <div class="card-title">
+                    <%- t(category.name) %>
+                </div>
+                <div class="card-number">
+                    <%- category.incidents %>
+                </div>
+                <a href="#incidents/by-category/<%- category.id %>" class="card-link" data-details="incidents/by-category/<%- category.id %>">view more</a>
+            </div>
+            <%})%>
+        </div>
+    </section>
+
+
+</div>
