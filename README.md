@@ -1,6 +1,6 @@
 ## Database setup and migration
-
-Go to the db-setup directory and execute setup.js
+1. extract db-setup.zip into db-folder
+2. Go to the db-setup directory and execute setup.js
 
 ```
 cd db-setup
